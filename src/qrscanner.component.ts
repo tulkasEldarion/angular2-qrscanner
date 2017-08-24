@@ -58,21 +58,21 @@ export class QrScannerComponent implements OnInit, OnDestroy, AfterViewInit {
     @ViewChild('videoWrapper') videoWrapper: ElementRef;
     @ViewChild('qrCanvas') qrCanvas: ElementRef;
 
-    private gCtx: CanvasRenderingContext2D;
-    private qrCode: QRCode = null;
-    private isDeviceConnected = false;
-    private gUM = false;
-    private videoElement: HTMLVideoElement;
+    gCtx: CanvasRenderingContext2D;
+    qrCode: QRCode = null;
+    isDeviceConnected = false;
+    gUM = false;
+    videoElement: HTMLVideoElement;
 
-    private isWebkit = false;
-    private isMoz = false;
-    private stream: any;
-    private stop = false;
+    isWebkit = false;
+    isMoz = false;
+    stream: any;
+    stop = false;
 
-    private nativeElement: ElementRef;
-    private supported = true;
+    nativeElement: ElementRef;
+    supported = true;
 
-    private captureTimeout: any;
+    captureTimeout: any;
 
     constructor(private renderer: Renderer2, private element: ElementRef) {
         this.nativeElement = this.element.nativeElement;
