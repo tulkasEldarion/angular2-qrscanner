@@ -1,4 +1,5 @@
 import { OnInit, EventEmitter, OnDestroy, Renderer2, ElementRef, AfterViewInit } from '@angular/core';
+import { QRCode } from './qrdecode/qrcode';
 /**
  * QrScanner will scan for a QRCode from your Web-cam and return its
  * string representation by drawing the captured image onto a 2D Canvas
@@ -33,18 +34,18 @@ export declare class QrScannerComponent implements OnInit, OnDestroy, AfterViewI
     onRead: EventEmitter<string>;
     videoWrapper: ElementRef;
     qrCanvas: ElementRef;
-    private gCtx;
-    private qrCode;
-    private isDeviceConnected;
-    private gUM;
-    private videoElement;
-    private isWebkit;
-    private isMoz;
-    private stream;
-    private stop;
-    private nativeElement;
-    private supported;
-    private captureTimeout;
+    gCtx: CanvasRenderingContext2D;
+    qrCode: QRCode;
+    isDeviceConnected: boolean;
+    gUM: boolean;
+    videoElement: HTMLVideoElement;
+    isWebkit: boolean;
+    isMoz: boolean;
+    stream: any;
+    stop: boolean;
+    nativeElement: ElementRef;
+    supported: boolean;
+    captureTimeout: any;
     constructor(renderer: Renderer2, element: ElementRef);
     ngOnInit(): void;
     ngAfterViewInit(): void;
