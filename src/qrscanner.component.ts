@@ -103,8 +103,9 @@ export class QrScannerComponent implements OnInit, OnDestroy, AfterViewInit {
             clearTimeout(this.captureTimeout);
             this.captureTimeout = false;
         }
-
-        this.stream.getTracks()[0].stop();
+        if (this.stream != null) {
+            this.stream.getTracks()[0].stop();
+        }
         this.stop = true;
     }
 
